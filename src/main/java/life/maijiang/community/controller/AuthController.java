@@ -26,8 +26,10 @@ public class AuthController {
     private String secret;
     @Value("${github.client.Redirect_uri}")
     private String Redirect_uri;
+
     @Autowired
     private UserMapper userMapper;
+
     @GetMapping("/callback")
     public String callback(@RequestParam(name = "code") String code,
                            @RequestParam(name = "state") String state,
@@ -39,10 +41,8 @@ public class AuthController {
         accessTokenDTO.setRedirect_uri(Redirect_uri);
         accessTokenDTO.setState(state);
         String accessToken = gitHubProvider.getAccessToken(accessTokenDTO);
-        System.out.println(accessToken);
         GithubUser githubUser = gitHubProvider.getUser(accessToken);
-        System.out.println(githubUser.getName());
-        if(githubUser!=null){//登陆成功写入session
+        if (githubUser != null) {//登陆成功写入session
             User user = new User();
             user.setToken(UUID.randomUUID().toString());
             user.setName(githubUser.getName());
@@ -50,9 +50,9 @@ public class AuthController {
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
             userMapper.insert(user);
-            request.getSession().setAttribute("user",githubUser);
+            request.getSession().setAttribute("user", githubUser);
             return "redirect:/";//重定向
-        }else {
+        } else {
             return "redirect:/";//重定向
         }
 
