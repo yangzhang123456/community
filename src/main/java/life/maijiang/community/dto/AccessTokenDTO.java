@@ -4,7 +4,7 @@ public class AccessTokenDTO {
     private String client_id;
     private String client_secret;
     private String redirect_uri;
-    private String stat;
+    private String state;
     private String code;
 
     public String getClient_id() {
@@ -31,12 +31,12 @@ public class AccessTokenDTO {
         this.redirect_uri = redirect_uri;
     }
 
-    public String getStat() {
-        return stat;
+    public String getState() {
+        return state;
     }
 
-    public void setStat(String stat) {
-        this.stat = stat;
+    public void setState(String stat) {
+        this.state = state;
     }
 
     public String getCode() {
