@@ -3,20 +3,20 @@ package life.maijiang.community.model;
 public class User {
     private Integer id;
     private String name;
-    private String accountId;
+    private String account_id;
     private String token;
-    private Long gmtCreate;
-    private Long gmtModified;
+    private Long gmt_create;
+    private Long gmt_modified;
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", accountId='" + accountId + '\'' +
+                ", accountId='" + account_id + '\'' +
                 ", token='" + token + '\'' +
-                ", gmtCreate=" + gmtCreate +
-                ", gmtModified=" + gmtModified +
+                ", gmtCreate=" + gmt_create +
+                ", gmtModified=" + gmt_modified +
                 '}';
     }
 
@@ -37,11 +37,11 @@ public class User {
     }
 
     public String getAccountId() {
-        return accountId;
+        return account_id;
     }
 
     public void setAccountId(String accountId) {
-        this.accountId = accountId;
+        this.account_id = accountId;
     }
 
     public String getToken() {
@@ -53,18 +53,18 @@ public class User {
     }
 
     public Long getGmtCreate() {
-        return gmtCreate;
+        return gmt_create;
     }
 
     public void setGmtCreate(Long gmtCreate) {
-        this.gmtCreate = gmtCreate;
+        this.gmt_create = gmtCreate;
     }
 
     public Long getGmtModified() {
-        return gmtModified;
+        return gmt_modified;
     }
 
     public void setGmtModified(Long gmtModified) {
-        this.gmtModified = gmtModified;
+        this.gmt_modified = gmtModified;
     }
 }
